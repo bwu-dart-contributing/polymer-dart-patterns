@@ -3,7 +3,8 @@ description: Port of https://github.com/PolymerLabs/polymer-snippets
 environment:
   sdk: '>=1.2.0 <2.0.0'
 dependencies:
-  #core_elements: ">=0.6.0 <0.7.0"
+  polymer_elements:
+    git: git@github.com:dart-lang/polymer_elements.git
   web_components: ^0.12.0
   polymer: ^0.17.0
 transformers:
@@ -59,18 +60,36 @@ transformers:
    # - web/layout_attributes/using_flex/index.html
    # - web/layout_attributes/using_layout_attributes/index.html
 
-   # - web/core_elements/core_toolbar/adding_a_menu_button/index.html
+    - web/core_elements/paper_toolbar/adding_a_menu_button/index.html
    # - web/core_elements/core_toolbar/adding_button_rows/index.html
    # - web/core_elements/core_toolbar/changing_the_toolbar_size/index.html
    # - web/core_elements/core_toolbar/using_core_toolbar/index.html
+
+- reflectable:
+    entry_points:
+    - web/basics/binding_to_a_field/index.dart
+    - web/basics/binding_to_a_complex_object/index.dart
+    - web/basics/binding_to_a_map/index.dart
+    - web/basics/binding_to_a_native_html_element/index.dart
+    - web/basics/binding_to_a_style/index.dart
+    - web/basics/finding_shadow_dom_elements/index.dart
+    - web/basics/using_bind_to_create_a_single_template_instance/index.dart
+
+    - web/core_elements/paper_toolbar/adding_a_menu_button/index.html
+   # - web/core_elements/core_toolbar/adding_button_rows/index.html
+   # - web/core_elements/core_toolbar/changing_the_toolbar_size/index.html
+   # - web/core_elements/core_toolbar/using_core_toolbar/index.html
+
 - $dart2js:
     $include: "**/*.polymer.bootstrap.dart"
 dependency_overrides:
   polymer:
     git:
-      ref: 0.17-0-dev-interop-reverse
+      ref: behaviors
       url: https://github.com/dart-lang/polymer-dart.git
   polymer_interop:
     git:
       ref: 0.2.0-dev
       url: https://github.com/dart-lang/polymer_interop.git
+  reflectable:
+    path: '../reflectable/reflectable'
